@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cherry Blossom Falling</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background-color: #f0f8ff; /* Màu nền nhẹ nhàng */
+    }
+
+    .blossom {
+      position: absolute;
+      top: -100px; /* Bắt đầu rơi từ ngoài khung nhìn */
+      width: 30px;
+      height: 30px;
+      background-image: url('./images/facebook.svg'); /* Đường dẫn tới hình cánh hoa anh đào */
+      background-size: cover;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    /* Hoạt ảnh rơi xuống */
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+
+    /* Tạo các biến thể về thời gian và hướng rơi */
+    .blossom:nth-child(1) {
+      left: 10%;
+      animation-duration: 10s;
+    }
+    .blossom:nth-child(2) {
+      left: 20%;
+      animation-duration: 12s;
+    }
+    .blossom:nth-child(3) {
+      left: 30%;
+      animation-duration: 8s;
+    }
+    .blossom:nth-child(4) {
+      left: 40%;
+      animation-duration: 14s;
+    }
+    .blossom:nth-child(5) {
+      left: 50%;
+      animation-duration: 11s;
+    }
+    .blossom:nth-child(6) {
+      left: 60%;
+      animation-duration: 13s;
+    }
+    .blossom:nth-child(7) {
+      left: 70%;
+      animation-duration: 9s;
+    }
+    .blossom:nth-child(8) {
+      left: 80%;
+      animation-duration: 15s;
+    }
+    .blossom:nth-child(9) {
+      left: 90%;
+      animation-duration: 10s;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Các phần tử hoa anh đào rơi -->
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+  <div class="blossom"></div>
+
+  <!-- JavaScript để tạo thêm nhiều cánh hoa -->
+  <script>
+    // Hàm để tạo thêm nhiều cánh hoa sau mỗi khoảng thời gian
+    function createBlossom() {
+      const blossom = document.createElement("div");
+      blossom.classList.add("blossom");
+      blossom.style.left = `${Math.random() * 100}vw`; // Vị trí ngẫu nhiên theo chiều ngang
+      blossom.style.animationDuration = `${Math.random() * 5 + 7}s`; // Thời gian rơi ngẫu nhiên
+      document.body.appendChild(blossom);
+
+      // Tự động xóa cánh hoa sau khi hoàn tất hoạt ảnh để tiết kiệm bộ nhớ
+      setTimeout(() => {
+        blossom.remove();
+      }, 15000); // Xóa sau 15 giây
+    }
+
+    // Tạo cánh hoa liên tục với khoảng cách 500ms
+    setInterval(createBlossom, 500);
+  </script>
+
+</body>
+</html>

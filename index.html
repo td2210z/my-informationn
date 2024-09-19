@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Thắng Đình - Links Bio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="preload" href="./images/bg01.jpg" as="image" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script>
+            function createBlossom() {
+        const blossom = document.createElement("div");
+        blossom.classList.add("blossom");
+        blossom.style.left = `${Math.random() * 100}vw`; // Vị trí ngẫu nhiên theo chiều ngang
+        blossom.style.animationDuration = `${Math.random() * 5 + 7}s`; // Thời gian rơi ngẫu nhiên
+        document.body.appendChild(blossom);
+
+        // Tự động xóa cánh hoa sau khi hoàn tất hoạt ảnh để tiết kiệm bộ nhớ
+        setTimeout(() => {
+            blossom.remove();
+        }, 15000); // Xóa sau 15 giây
+        }
+
+        // Tạo cánh hoa liên tục với khoảng cách 500ms
+        setInterval(createBlossom, 500);
+
+
+        window.addEventListener("DOMContentLoaded", () => {
+          // Vô hiệu hóa tất cả các liên kết ban đầu
+          const disableLinks = () => {
+            document.querySelectorAll("a").forEach(link => {
+              link.style.pointerEvents = "none"; // Vô hiệu hóa nhấp chuột
+              link.style.opacity = "0.5"; // Có thể thay đổi để làm rõ các link bị vô hiệu hóa (tùy chọn)
+            });
+          };
+
+          // Kích hoạt lại các liên kết
+          const enableLinks = () => {
+            document.querySelectorAll("a").forEach(link => {
+              link.style.pointerEvents = "auto"; // Cho phép nhấp chuột
+              link.style.opacity = "1"; // Khôi phục trạng thái ban đầu (tùy chọn)
+            });
+          };
+
+          // Đặt hiệu ứng VANTA nhưng chưa kích hoạt
+          const activateVanta = () => {
+            if (!window.vantaEffect) {
+              window.vantaEffect = VANTA.BIRDS({
+                el: "#vanta",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: true,
+                minHeight: 200.0,
+                minWidth: 200.0,
+                scale: 1.0,
+                scaleMobile: 1.0,
+                backgroundAlpha: 0.0,
+                color2: 0xff00f0,
+                wingSpan: 40.0,
+                separation: 100.0,
+                alignment: 77.0,
+                cohesion: 5.0,
+                quantity: 1.0,
+              });
+
+              const main = document.querySelector("main");
+              if (main) {
+                main.style.opacity = 1;
+                main.style.filter = "blur(0px)";
+              }
+
+              // Kích hoạt lại các liên kết khi hiệu ứng đã hoàn tất
+              enableLinks();
+            }
+          };
+
+          // Vô hiệu hóa liên kết ngay từ đầu
+          disableLinks();
+
+          // Kích hoạt bằng cách click hoặc chạm
+          document.addEventListener("click", activateVanta);
+          document.addEventListener("touchstart", activateVanta);
+
+          // Đợi 5 giây mới kích hoạt hiệu ứng
+          setTimeout(() => {
+            activateVanta();
+          }, 2000);
+        });
+      </script>
+
+  </head>
+  <body>
+<!-- hiệu ứng hoa anh đào -->
+
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+    <div class="blossom"></div>
+
+
+
+    <div id="vanta"></div>
+    <video autoplay muted loop playsinline>
+        <source src="./images/kayn.m4v" type="video/mp4; codecs=hvc1">
+        <source src="./images//kale.webm" type="video/webm; codecs=vp9">
+    </video>
+    <main class="animated">
+      <header>
+        <img src="./images/avt.jpg" />
+        <h1>@thangdinh2210</h1>
+      </header>
+      <ul>
+        <li>
+          <a href="https://www.facebook.com/ThangDinhhh2210.org/">
+            <img src="./images/facebook.svg" alt="Homepage" width="20" />
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a href="https://www.tiktok.com/@dc.thangdinhh">
+            <img src="./images/tik-tok.svg" alt="Wallpapers" width="20" />
+            Tiktok
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.douyin.com/user/self?from_tab_name=main"
+          >
+            <img src="./images/tik-tok.svg" alt="YouTube" width="20" />
+            Douyin
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://www.youtube.com/@XIAOthangDinhhh"
+          >
+            <img src="./images/youtube.svg" alt="YouTube" width="20" />
+            Youtube
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/thang.dinh22/">
+            <img src="./images/insta.svg" alt="X (Twitter)" width="20" />
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/td2210z">
+            <img src="./images/github.svg" alt="GitHub" width="20" />
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </main>
+  </body>
+</html>
